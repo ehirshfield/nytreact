@@ -1,0 +1,41 @@
+{
+  "name": "nytreact",
+  "version": "1.0.0",
+  "description": "An article search app for the New York Times using React.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehirshfield/nytreact.git"
+  },
+  "keywords": [
+    "new-york-times",
+    "react",
+    "search",
+    "article"
+  ],
+  "author": "Eric Hirshfield-Yamanishi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ehirshfield/nytreact/issues"
+  },
+  "homepage": "https://github.com/ehirshfield/nytreact#readme",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "mongoose": "^4.8.4",
+    "morgan": "^1.8.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "webpack": "^2.2.1"
+  }
+}
