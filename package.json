@@ -2,9 +2,10 @@
   "name": "nytreact",
   "version": "1.0.0",
   "description": "An article search app for the New York Times using React.js",
-  "main": "index.js",
+  "main": "public/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
