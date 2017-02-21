@@ -18,6 +18,11 @@ var Main = React.createClass({
     //Do this after component changes
     componentDidUpdate: function(){
 
+    },
+    render: function(){
+      return(
+        
+      );
     }
 
 });
