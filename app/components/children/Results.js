@@ -12,7 +12,13 @@ var Search = React.createClass({
           <h3 className="panel-title text-center">Search</h3>
         </div>
         <div className="panel-body text-center">
-          {this.props.searchResults}
+          {this.props.searchResults.map(function(search, i){
+            return (
+              <div key={i} class="container">
+                <h4>{search.title}</h4>
+              </div>
+            );
+          })}
         </div>
       </div>
     );

@@ -1,5 +1,6 @@
-var db = require('../models');
-
+var Article = require('../models/Article.js');
+var Note = require('../models/Note.js');
+var Search = require('../models/Search.js');
 //Other route Functions
 
 //routes themselves
@@ -15,7 +16,7 @@ module.exports = function(app){
   app.get("/api/saved", function(req, res) {
 
     // We will find all the records, sort it in descending order, then limit the records to 5
-    db.Article.find({}).sort([
+    Article.find({}).sort([
       ["date", "descending"]
     ]).limit(5).populate("note")
     .exec(function(err, doc) {
@@ -32,7 +33,7 @@ module.exports = function(app){
   app.post("/api/search", function(req, res) {
     console.log("BODY: " + req.body.title);
 
-    db.Article.create({
+    Article.create({
       title: req.body.title,
       date: Date.now()
     }, function(err) {
@@ -54,7 +55,7 @@ module.exports = function(app){
         console.log(err);
       }
       else{
-        db.Article.findOneAndUpdate({"_id": req.params.id}, {$push: {"note": doc._id}}, {new: true})
+        Article.findOneAndUpdate({"_id": req.params.id}, {$push: {"note": doc._id}}, {new: true})
         .exec(function(err, doc){
           if (err){
             console.log("Error saving note: " + err);

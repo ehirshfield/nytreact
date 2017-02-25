@@ -14,8 +14,14 @@ var Saved = React.createClass({
           {this.props.savedArticles.map(function(article, i){
             return (
               //May have to map note array as well to include all possible notes
-              <p key={i}>{article.title}</p>
-              <p>{article.url}</p>
+              <div>
+                <p key={i}>{article.title}</p>
+                <p>{article.url}</p>
+                {article.note.map(function(note, i){
+                  <p key={i}>{note.note}</p>
+                })}
+              </div>
+
             )
           })}
         </div>

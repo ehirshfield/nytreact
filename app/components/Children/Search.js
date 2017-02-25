@@ -36,13 +36,13 @@ var Search = React.createClass({
           <form onSubmit={this.handleSubmit}>
 
 
-          <div class="form-group">
-            <label for="search">Search Term:</label>
-            <input type="text" class="form-control" id="searchTerm">
+          <div className="form-group">
+            <label htmlFor="term">Search Term:</label>
+            <input type="text" value={this.state.term} className="form-control" id="term" onChange={this.handleChange} required />
           </div>
 
-          <button type="submit" class="btn btn-default"><i class="fa fa-search"></i> Search</button>
-          <button type="button" class="btn btn-default"><i class="fa fa-trash"></i> Clear Results</button>
+          <button type="submit" className="btn btn-default"><i className="fa fa-search"></i> Search</button>
+          <button type="button" className="btn btn-default"><i className="fa fa-trash"></i> Clear Results</button>
 
          </form>
         </div>

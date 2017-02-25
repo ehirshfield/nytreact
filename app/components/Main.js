@@ -5,7 +5,7 @@ var Saved = require("./children/Saved.js");
 var Search = require("./children/Search.js");
 
 
-var helper = require("./utils/helper.js");
+// var helper = require("./utils/helper.js");
 
 var Main = React.createClass({
     getInitialState: function(){
@@ -35,8 +35,8 @@ var Main = React.createClass({
             </div>
           </div>
           <div>
-            <Search search={this.state.search} />
-            <Saved />
+            <Search  />
+            <Saved savedArticles={this.state.saved}/>
           </div>
         </div>
       );
