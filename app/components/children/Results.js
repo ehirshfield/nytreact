@@ -3,21 +3,7 @@ var React = require("react");
 
 // Creating the Results component
 var Search = React.createClass({
-  renderResults: function(props){
-    <p>{props.}</p>
-  },
-  noResults: function(props) {
-    <p>No results</p>
-  },
-  checkResults: function(props) {
-    var searchResults = props.searchResults;
-    if (searchResults){
-      return <renderResults />
-    }
-    else{
-      return <noResults />
-    }
-  },
+
   // Here we render the function
   render: function() {
     return (
@@ -26,7 +12,7 @@ var Search = React.createClass({
           <h3 className="panel-title text-center">Search</h3>
         </div>
         <div className="panel-body text-center">
-          <checkResults searchResults={this.props.searchResults}/>
+          {this.props.searchResults}
         </div>
       </div>
     );

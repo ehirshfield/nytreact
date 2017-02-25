@@ -11,7 +11,13 @@ var Saved = React.createClass({
           <h3 className="panel-title text-center">Saved Articles</h3>
         </div>
         <div className="panel-body text-center">
-
+          {this.props.savedArticles.map(function(article, i){
+            return (
+              //May have to map note array as well to include all possible notes
+              <p key={i}>{article.title}</p>
+              <p>{article.url}</p>
+            )
+          })}
         </div>
       </div>
     );

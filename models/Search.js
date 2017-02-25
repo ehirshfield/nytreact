@@ -6,26 +6,14 @@ var Schema = mongoose.Schema;
 // Create article schema
 var ArticleSchema = new Schema({
   // title is a required string
-  title: {
+  search: {
     type: String,
     required: true
-  },
-  date: {
-    type: Date,
-    default: Date.now
-  },
-  url: {
-    type: String,
-    required: true
-  },
-  note: [{
-    type: Schema.Types.ObjectId,
-    ref: "Note"
-  }]
+  }
 });
 
 // Create the Article model with the ArticleSchema
-var Article = mongoose.model("Article", ArticleSchema);
+var Search = mongoose.model("Search", ArticleSchema);
 
 // Export the model
-module.exports = Article;
+module.exports = Search;

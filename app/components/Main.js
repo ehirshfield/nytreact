@@ -4,14 +4,15 @@ var React = require("react");
 var Saved = require("./children/Saved.js");
 var Search = require("./children/Search.js");
 
-//utils in the future?
-// var helper = require("./utils/helper.js");
+
+var helper = require("./utils/helper.js");
 
 var Main = React.createClass({
     getInitialState: function(){
       return ({
         search: "",
-        articles: "hello"
+        results: "",
+        saved: []
       })
     },
     //Do this right after the page renders
