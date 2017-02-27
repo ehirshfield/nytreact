@@ -25,27 +25,39 @@ var Search = React.createClass({
     this.setState({ term: "" });
   },
 
+  // handleClear: function(){
+  //
+  //   console.log("Clear!");
+  //   this.props.searchResults();
+  // },
+
   // Here we render the function
   render: function() {
     return (
-      <div className="panel panel-default">
-        <div className="panel-heading">
-          <h3 className="panel-title text-center">Search</h3>
-        </div>
-        <div className="panel-body text-center">
-          <form onSubmit={this.handleSubmit}>
+      <div className="row">
+        <div className="col-md-2"></div>
+        <div className="col-md-8">
+          <div className="panel panel-default">
+            <div className="panel-heading">
+              <h3 className="panel-title text-center">Search</h3>
+            </div>
+            <div className="panel-body text-center">
+              <form onSubmit={this.handleSubmit}>
 
 
-          <div className="form-group">
-            <label htmlFor="term">Search Term:</label>
-            <input type="text" value={this.state.term} className="form-control" id="term" onChange={this.handleChange} required />
+              <div className="form-group">
+                <label htmlFor="term">Search Term:</label>
+                <input type="text" value={this.state.term} className="form-control" id="term" onChange={this.handleChange} required />
+              </div>
+
+              <button type="submit" className="btn btn-default"><i className="fa fa-search"></i> Search</button>
+
+
+             </form>
+            </div>
           </div>
-
-          <button type="submit" className="btn btn-default"><i className="fa fa-search"></i> Search</button>
-          <button type="button" className="btn btn-default"><i className="fa fa-trash"></i> Clear Results</button>
-
-         </form>
         </div>
+        <div className="col-md-2"></div>
       </div>
     );
   }

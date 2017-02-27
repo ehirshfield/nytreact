@@ -15,10 +15,10 @@ module.exports = function(app){
   //We will call this route the moment our page gets rendered
   app.get("/api/saved", function(req, res) {
 
-    // We will find all the records, sort it in descending order, then limit the records to 5
+    // We will find all the records, sort it in descending order, then limit the records to 10
     Article.find({}).sort([
       ["date", "descending"]
-    ]).limit(5).populate("note")
+    ]).limit(10).populate("note")
     .exec(function(err, doc) {
       if (err) {
         console.log(err);
@@ -31,10 +31,10 @@ module.exports = function(app){
 
   //Save a search
   app.post("/api/search", function(req, res) {
-    console.log("BODY: " + req.body.title);
+    console.log("BODY: " + req.body.search);
 
-    Article.create({
-      title: req.body.title,
+    Search.create({
+      search: req.body.search,
       date: Date.now()
     }, function(err) {
       if (err) {
@@ -46,7 +46,7 @@ module.exports = function(app){
     });
   });
 
-//Adding a note to an existing article in the saved article history
+//Adding a note to an existing article in the saved article history -- to be added in the future
   app.post("/api/article/:id", function(req, res){
     var newNote = new Note(req.body);
 
@@ -68,5 +68,22 @@ module.exports = function(app){
     })
   })
 
+  app.post("/api/save" ,function(req, res){
+
+    Article.create({
+      title: req.body.title,
+      date: Date.now(),
+      url: req.body.url
+
+    }, function(err, doc){
+      if (err) {
+        console.log("Save error: " + err);
+      }
+      else{
+        res.send("Save success");
+      }
+    })
+
+  })
 
 }

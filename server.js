@@ -1,7 +1,11 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
+var path = require('path');
 var mongoose = require("mongoose");
+var Promise = require("bluebird");
+
+mongoose.Promise = Promise;
 
 
 var app = express();
@@ -20,7 +24,7 @@ app.use(express.static("./public"));
 // -------------------------------------------------
 
 // MongoDB Configuration configuration (Change this URL to your own DB)
-mongoose.connect("mongodb://localhost");
+mongoose.connect("mongodb://localhost/nytreact");
 var db = mongoose.connection;
 
 db.on("error", function(err) {

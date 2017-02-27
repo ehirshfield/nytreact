@@ -9,6 +9,10 @@ var ArticleSchema = new Schema({
   search: {
     type: String,
     required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 });
 
