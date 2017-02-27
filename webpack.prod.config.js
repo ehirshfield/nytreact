@@ -1,20 +1,49 @@
-var config = require('./webpack.config.js');
-var webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 
-config.plugins.push(
-  new webpack.DefinePlugin({
-    "process.env": {
-      "NODE_ENV": JSON.stringify("production")
-    }
-  })
-);
+module.exports = {
+  devtool: 'source-map',
 
-config.plugins.push(
-  new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: false
-    }
-  })
-);
+  entry: [
+    './app/app.js'
+  ],
 
-module.exports = config;
+  output: {
+    path: path.join(__dirname, 'public'),
+    filename: 'bundle.js',
+    publicPath: '/public/'
+  },
+
+  plugins: [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    })
+  ],
+
+  module: {
+    loaders: [
+      {
+        // Only working with files that in in a .js or .jsx extension
+        test: /\.jsx?$/,
+        // Webpack will only process files in our app folder. This avoids processing
+        // node modules and server files unnecessarily
+        include: /app/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        query: {
+          // These are the specific transformations we'll be using.
+          presets: ["es2015", "react"]
+        }
+      }
+    ]
+  }
+}

@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack & node server",
-    "start": "node server",
-    "build": "webpack",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
+
+    "build": "NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors",
+    "start": "node server"
+
   },
   "repository": {
     "type": "git",
